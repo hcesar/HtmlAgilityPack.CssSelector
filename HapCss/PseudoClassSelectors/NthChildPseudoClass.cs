@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HapCss.PseudoClassSelectors
 {
-    [FunctionName("nth-child")]
+    [PseudoClassName("nth-child")]
     internal class NthChildPseudoClass : PseudoClass
     {
-        public override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
+        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
         {
             return node.GetIndexOnParent() == int.Parse(parameter) - 1;
         }

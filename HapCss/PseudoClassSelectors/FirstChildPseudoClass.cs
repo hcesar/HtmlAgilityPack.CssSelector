@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HapCss.PseudoClassSelectors
 {
-    [FunctionName("first-child")]
+    [PseudoClassName("first-child")]
     internal class FirstChildPseudoClass : PseudoClass
     {
-        public override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
+        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
         {
             return node.GetIndexOnParent() == 0;
         }

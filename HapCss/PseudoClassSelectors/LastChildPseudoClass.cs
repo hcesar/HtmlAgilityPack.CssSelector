@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HapCss.PseudoClassSelectors
 {
-    [FunctionName("last-child")]
+    [PseudoClassName("last-child")]
     internal class LastChildPseudoClass : PseudoClass
     {
-        public override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
+        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
         {
             return node.ParentNode.ChildNodes.Reverse().First(i => i.NodeType == HtmlNodeType.Element) == node;
         }

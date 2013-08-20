@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,15 @@ namespace HapCss
     {
         private static Dictionary<string, PseudoClass> s_Classes = LoadPseudoClasses();
 
-        public abstract bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter);
+        public virtual IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> nodes, string parameter)
+        {
+            return nodes.Where(i => CheckNode(i, parameter));
+        }
 
+        protected abstract bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter);
+
+        
+        
         public static PseudoClass GetPseudoClass(string pseudoClass)
         {
             if (!s_Classes.ContainsKey(pseudoClass))
@@ -28,7 +36,7 @@ namespace HapCss
 
             foreach (var type in types)
             {
-                var attr = type.GetCustomAttributes(typeof(FunctionNameAttribute), false).Cast<FunctionNameAttribute>().FirstOrDefault();
+                var attr = type.GetCustomAttributes(typeof(PseudoClassNameAttribute), false).Cast<PseudoClassNameAttribute>().FirstOrDefault();
                 rt.Add(attr.FunctionName, (PseudoClass)Activator.CreateInstance(type));
             }
 
@@ -37,11 +45,11 @@ namespace HapCss
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    public class FunctionNameAttribute : Attribute
+    public class PseudoClassNameAttribute : Attribute
     {
         public string FunctionName { get; private set; }
 
-        public FunctionNameAttribute(string name)
+        public PseudoClassNameAttribute(string name)
         {
             this.FunctionName = name;
         }

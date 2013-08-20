@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HapCss.PseudoClassSelectors
 {
-    [FunctionName("not")]
+    [PseudoClassName("not")]
     internal class NotPseudoClass : PseudoClass
     {
-        public override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
+        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
         {
             var selectors = CssSelector.Parse(parameter);
             var nodes = new[] { node };

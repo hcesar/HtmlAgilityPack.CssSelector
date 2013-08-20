@@ -20,11 +20,7 @@ namespace HapCss.Selectors
             var pseudoClass = PseudoClass.GetPseudoClass(values[0]);
             string value = values.Length > 1 ? values[1] : null;
 
-            foreach (var node in currentNodes)
-            {
-                if (pseudoClass.CheckNode(node, value))
-                    yield return node;
-            }
+            return pseudoClass.Filter(currentNodes, value);
         }
     }
 }
