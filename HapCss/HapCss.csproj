@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NodeExtensionMethods.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="PseudoClass.cs" />
     <Compile Include="PseudoClassNameAttribute.cs" />

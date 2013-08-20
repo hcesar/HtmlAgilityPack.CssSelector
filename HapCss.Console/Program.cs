@@ -11,13 +11,15 @@ namespace HapCss
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(System.Globalization.CultureInfo.GetCultureInfo("pt-BR").TextInfo.ToTitleCase("olá este é um teste e um exemplo"));
-
             HtmlNode node;
             IList<HtmlAgilityPack.HtmlNode> nodes;
             //var tokens = Tokenizer.GetTokens(".class #id1 div.class2").ToList();
             var doc = new HtmlAgilityPack.HtmlDocument();
             doc.Load("linkedin.html");
+
+            nodes = doc.QuerySelectorAll("*");
+
+            node = nodes.First(i => i.GetIndexOnParent() == nodes.Max(n => n.GetIndexOnParent()));
 
 
             var profile = new Profile();

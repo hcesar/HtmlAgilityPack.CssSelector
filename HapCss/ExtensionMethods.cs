@@ -8,16 +8,8 @@ using System.Threading.Tasks;
 
 namespace System
 {
-    public static class HapCssExtensionMethods
+    public static partial class HapCssExtensionMethods
     {
-        public static IList<string> GetClassList(this HtmlAgilityPack.HtmlNode node)
-        {
-            var attr = node.Attributes["class"];
-            if (attr == null)
-                return new string[0];
-            return attr.Value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        }
-
         public static HtmlAgilityPack.HtmlNode QuerySelector(this HtmlAgilityPack.HtmlDocument doc, string cssSelector)
         {
             return doc.QuerySelectorAll(cssSelector).FirstOrDefault();
@@ -86,19 +78,6 @@ namespace System
             foreach (var child in node.ChildNodes)
                 foreach (var n in Traverse(child))
                     yield return n;
-        }
-
-        public static int GetIndexOnParent(this HtmlNode node)
-        {
-            int idx = 0;
-            foreach (var n in node.ParentNode.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element))
-            {
-                if (n == node)
-                    return idx;
-                idx++;
-            }
-
-            throw new InvalidOperationException("Node not found in its parent.");
         }
     }
 }
