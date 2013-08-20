@@ -12,6 +12,7 @@ namespace HapCss.PseudoClassSelectors
     {
         public override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
         {
+            //
             return node.ParentNode.ChildNodes.Reverse().First(i => i.NodeType == HtmlNodeType.Element) == node;
         }
     }
