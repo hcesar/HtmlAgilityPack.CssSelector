@@ -2,6 +2,7 @@ HtmlAgilityPack CSS Selector
 =======
 
 HAP-CSS is a .NET Extension Method for HtmlAgilityPack HtmlDocument and HtmlNode classes.
+It is a handy tool for Web scrapers, and a good alternative to HAP XPath queries.
 
 Usage:
 
