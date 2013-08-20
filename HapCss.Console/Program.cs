@@ -18,9 +18,18 @@ namespace HapCss
             doc.Load("linkedin.html");
 
             nodes = doc.QuerySelectorAll("*");
-
             node = nodes.First(i => i.GetIndexOnParent() == nodes.Max(n => n.GetIndexOnParent()));
 
+            for (int it = 0; it < 10; it++)
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                int max = nodes.Max(n => n.GetIndexOnParent());
+                node = nodes.First(i => i.GetIndexOnParent() == max);
+                Console.WriteLine(sw.ElapsedMilliseconds);
+            }
+
+
+            System.Environment.Exit(0);
 
             var profile = new Profile();
             profile.Name = doc.QuerySelectorAll(".full-name").text();

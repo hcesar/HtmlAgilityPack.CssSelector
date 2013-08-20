@@ -20,12 +20,20 @@ namespace System
             var attr = node.Attributes["class"];
             if (attr == null)
                 return new string[0];
-            return attr.Value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            return attr.Value.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
         public static int GetIndexOnParent(this HtmlNode node)
         {
-            return node.GetChildElements().TakeWhile(n => n != node).Count();
+            int idx = 0;
+            foreach (var n in node.ParentNode.GetChildElements())
+            {
+                if (n == node)
+                    return idx;
+                idx++;
+            }
+
+            throw new InvalidOperationException("Node not found in its parent!");
         }
 
         public static HtmlNode NextSiblingElement(this HtmlNode node)
