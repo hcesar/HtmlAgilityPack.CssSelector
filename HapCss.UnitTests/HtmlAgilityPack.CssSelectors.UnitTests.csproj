@@ -60,9 +60,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HapCss\HapCss.csproj">
+    <ProjectReference Include="..\HapCss\HtmlAgilityPack.CssSelectors.csproj">
       <Project>{f5a65d54-a578-4a58-aad2-4a602c36dda7}</Project>
-      <Name>HapCss</Name>
+      <Name>HtmlAgilityPack.CssSelectors</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
