@@ -15,6 +15,11 @@ namespace System
             return node.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element);
         }
 
+        public static HtmlAgilityPack.HtmlNode GetChildElement(this HtmlAgilityPack.HtmlNode node, int index)
+        {
+            return node.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element).ToList()[index];
+        }
+
         public static IList<string> GetClassList(this HtmlAgilityPack.HtmlNode node)
         {
             var attr = node.Attributes["class"];
