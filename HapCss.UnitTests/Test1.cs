@@ -40,6 +40,25 @@ namespace HapCss.UnitTests
                 Assert.IsTrue(elements1[i] == elements2[i]);
         }
 
+		[TestMethod]
+        public void GetElementsByClassName_MultiClasses()
+        {
+            var elements = doc.QuerySelectorAll(".cls-a, .cls-b");
+
+            Assert.IsTrue(elements.Count == 2);
+            Assert.IsTrue(elements[0].Id == "spanA");
+            Assert.IsTrue(elements[1].Id == "spanB");
+        }
+
+		[TestMethod]
+        public void GetElementsByClassName_WithUnderscore()
+        {
+            var elements = doc.QuerySelectorAll(".underscore_class");
+
+            Assert.IsTrue(elements.Count == 1);
+            Assert.IsTrue(elements[0].Id == "spanB");
+        }
+
 
 
         private static HtmlAgilityPack.HtmlDocument LoadHtml()

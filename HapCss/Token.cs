@@ -24,7 +24,7 @@ namespace HapCss
 
         private static IList<string> SplitTokens(string token)
         {
-            Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-';
+            Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-'|| c == '_';
             var rt = new List<string>();
            
             int start = 0;
