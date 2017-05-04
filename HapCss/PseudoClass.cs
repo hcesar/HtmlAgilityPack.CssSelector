@@ -31,7 +31,22 @@ namespace HapCss
         private static Dictionary<string, PseudoClass> LoadPseudoClasses()
         {
             var rt = new Dictionary<string, PseudoClass>(StringComparer.InvariantCultureIgnoreCase);
-            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => asm.GetTypes().Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
+
+            // Try to be resilient against Assembly.GetType() throwing an exception:
+            // - dynamic assemblies will fail
+            // - I have observed the non-dynamic assembly  "DotNetOpenAuth, Version=3.4.7.11121, Culture=neutral, PublicKeyToken=2780ccd10d57b246" also fail with no obvious way of knowing it will
+            //  fall ahead of time.  For this reason, I have wrapped "GetTypes" in a try/catch block so that the code can continue on somewhat gracefully
+            Func<System.Reflection.Assembly, Type[]> tryGetTypes = a => {
+                if (!a.IsDynamic) {
+                    try {                    
+                        return a.GetTypes();                    
+                    } catch (Exception) { }
+                }
+                return new Type[] { };               
+            };
+
+            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => tryGetTypes(asm).Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
+
             types = types.OrderBy(i => i.Assembly == typeof(PseudoClass).Assembly ? 0 : 1).ToList();
 
             foreach (var type in types)
