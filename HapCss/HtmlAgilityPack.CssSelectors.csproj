@@ -46,6 +46,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="PseudoClass.cs" />
     <Compile Include="PseudoClassNameAttribute.cs" />
+    <Compile Include="PseudoClassSelectors\NthOfTypePseudoClass.cs" />
     <Compile Include="PseudoClassSelectors\LastChildPseudoClass.cs" />
     <Compile Include="PseudoClassSelectors\NotPseudoClass.cs" />
     <Compile Include="PseudoClassSelectors\NthChildPseudoClass.cs" />
