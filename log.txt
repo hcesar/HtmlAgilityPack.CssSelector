@@ -1,0 +1,166 @@
+2021-09-18 14:28:10.819 +03:00 [INF] Loaded 5 extensions
+2021-09-18 14:28:11.556 +03:00 [INF] MSBuild registered from C:\Program Files\dotnet\sdk\5.0.401\
+2021-09-18 14:28:12.073 +03:00 [INF] Found Visual Studio v16.11.31702.278 [C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional]
+2021-09-18 14:28:12.077 +03:00 [INF] Found Visual Studio v16.8.31005.135 [C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools]
+2021-09-18 14:28:12.080 +03:00 [INF] Found Visual Studio v15.9.28307.1500 [C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools]
+2021-09-18 14:28:13.563 +03:00 [INF] Initializing upgrade step Select an entrypoint
+2021-09-18 14:28:32.177 +03:00 [INF] Applying upgrade step Select an entrypoint
+2021-09-18 14:28:40.921 +03:00 [INF] Upgrade step Select an entrypoint applied successfully
+2021-09-18 14:28:55.152 +03:00 [INF] Initializing upgrade step Select project to upgrade
+2021-09-18 14:28:55.225 +03:00 [INF] Initializing upgrade step Back up project
+2021-09-18 14:28:59.124 +03:00 [INF] Applying upgrade step Back up project
+2021-09-18 14:29:02.318 +03:00 [INF] Backing up C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss to C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector.backup\HapCss
+2021-09-18 14:29:02.372 +03:00 [INF] Project backed up to C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector.backup\HapCss
+2021-09-18 14:29:02.373 +03:00 [INF] Upgrade step Back up project applied successfully
+2021-09-18 14:29:13.284 +03:00 [INF] Initializing upgrade step Convert project file to SDK style
+2021-09-18 14:29:15.637 +03:00 [INF] Applying upgrade step Convert project file to SDK style
+2021-09-18 14:29:15.641 +03:00 [INF] Converting project file format with try-convert, version 0.9.232202
+2021-09-18 14:29:18.745 +03:00 [INF] [dotnet] Conversion complete!
+2021-09-18 14:29:19.205 +03:00 [INF] Project file converted successfully! The project may require additional changes to build successfully against the new .NET target.
+2021-09-18 14:29:25.230 +03:00 [INF] Upgrade step Convert project file to SDK style applied successfully
+2021-09-18 14:29:27.251 +03:00 [INF] Initializing upgrade step Clean up NuGet package references
+2021-09-18 14:29:29.552 +03:00 [INF] Reference to .NET Upgrade Assistant analyzer package (Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, version 0.3.246501) needs added
+2021-09-18 14:29:29.569 +03:00 [INF] Packages to be added: Operation { Item = Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501, OperationDetails = OperationDetails { Risk = None, Details = System.Linq.EmptyPartition`1[System.String] } }
+2021-09-18 14:29:32.786 +03:00 [INF] Applying upgrade step Clean up NuGet package references
+2021-09-18 14:29:32.791 +03:00 [INF] Adding package reference: Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501
+2021-09-18 14:29:36.436 +03:00 [INF] Upgrade step Clean up NuGet package references applied successfully
+2021-09-18 14:29:49.231 +03:00 [INF] Initializing upgrade step Update TFM
+2021-09-18 14:29:49.241 +03:00 [INF] TFM needs updated to netstandard2.0
+2021-09-18 14:29:51.403 +03:00 [INF] Applying upgrade step Update TFM
+2021-09-18 14:29:53.233 +03:00 [INF] Updated TFM to netstandard2.0
+2021-09-18 14:29:53.234 +03:00 [INF] Upgrade step Update TFM applied successfully
+2021-09-18 14:29:54.447 +03:00 [INF] Initializing upgrade step Update NuGet Packages
+2021-09-18 14:29:57.961 +03:00 [INF] Marking package HtmlAgilityPack, Version=1.4.9 for removal because it doesn't support the target framework but a newer version (1.11.36) does
+2021-09-18 14:29:57.978 +03:00 [INF] Packages to be removed: Operation { Item = HtmlAgilityPack, Version=1.4.9, OperationDetails = OperationDetails { Risk = None, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:29:57.980 +03:00 [INF] Packages to be added: Operation { Item = HtmlAgilityPack, Version=1.11.36, OperationDetails = OperationDetails { Risk = Low, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:30:00.706 +03:00 [INF] Applying upgrade step Update NuGet Packages
+2021-09-18 14:30:00.708 +03:00 [INF] Removing outdated package reference: HtmlAgilityPack, Version=1.4.9
+2021-09-18 14:30:00.712 +03:00 [INF] Adding package reference: HtmlAgilityPack, Version=1.11.36
+2021-09-18 14:30:02.472 +03:00 [INF] Upgrade step Update NuGet Packages applied successfully
+2021-09-18 14:30:05.834 +03:00 [INF] Initializing upgrade step Add template files
+2021-09-18 14:30:05.850 +03:00 [INF] 0 expected template items needed
+2021-09-18 14:30:05.856 +03:00 [INF] Initializing upgrade step Update source code
+2021-09-18 14:30:05.862 +03:00 [INF] Running analyzers on HtmlAgilityPack.CssSelectors
+2021-09-18 14:30:07.425 +03:00 [INF] Identified 0 diagnostics in project HtmlAgilityPack.CssSelectors
+2021-09-18 14:30:07.433 +03:00 [INF] Initializing upgrade step Move to next project
+2021-09-18 14:30:10.887 +03:00 [INF] Applying upgrade step Move to next project
+2021-09-18 14:30:10.889 +03:00 [INF] Upgrade step Move to next project applied successfully
+2021-09-18 14:30:12.874 +03:00 [INF] Initializing upgrade step Select project to upgrade
+2021-09-18 14:30:12.878 +03:00 [INF] No projects need upgraded for selected entrypoint
+2021-09-18 14:30:12.879 +03:00 [INF] Initializing upgrade step Finalize upgrade
+2021-09-18 14:30:15.451 +03:00 [INF] Applying upgrade step Finalize upgrade
+2021-09-18 14:30:15.452 +03:00 [INF] Upgrade step Finalize upgrade applied successfully
+2021-09-18 14:30:17.371 +03:00 [INF] Upgrade has completed. Please review any changes.
+2021-09-18 14:30:23.058 +03:00 [INF] Loaded 5 extensions
+2021-09-18 14:30:23.413 +03:00 [INF] MSBuild registered from C:\Program Files\dotnet\sdk\5.0.401\
+2021-09-18 14:30:23.886 +03:00 [INF] Found Visual Studio v16.11.31702.278 [C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional]
+2021-09-18 14:30:23.890 +03:00 [INF] Found Visual Studio v16.8.31005.135 [C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools]
+2021-09-18 14:30:23.895 +03:00 [INF] Found Visual Studio v15.9.28307.1500 [C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools]
+2021-09-18 14:30:25.948 +03:00 [INF] Initializing upgrade step Select an entrypoint
+2021-09-18 14:30:28.686 +03:00 [INF] Applying upgrade step Select an entrypoint
+2021-09-18 14:30:32.049 +03:00 [INF] Upgrade step Select an entrypoint applied successfully
+2021-09-18 14:30:32.956 +03:00 [INF] Initializing upgrade step Select project to upgrade
+2021-09-18 14:30:38.638 +03:00 [INF] Applying upgrade step Select project to upgrade
+2021-09-18 14:30:42.489 +03:00 [INF] Upgrade step Select project to upgrade applied successfully
+2021-09-18 14:30:43.534 +03:00 [INF] Initializing upgrade step Back up project
+2021-09-18 14:30:46.395 +03:00 [INF] Applying upgrade step Back up project
+2021-09-18 14:30:48.022 +03:00 [INF] Backing up C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss.UnitTests to C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector.backup\HapCss.UnitTests
+2021-09-18 14:30:48.054 +03:00 [INF] Project backed up to C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector.backup\HapCss.UnitTests
+2021-09-18 14:30:48.055 +03:00 [INF] Upgrade step Back up project applied successfully
+2021-09-18 14:30:48.943 +03:00 [INF] Initializing upgrade step Convert project file to SDK style
+2021-09-18 14:30:51.860 +03:00 [INF] Applying upgrade step Convert project file to SDK style
+2021-09-18 14:30:51.886 +03:00 [INF] Converting project file format with try-convert, version 0.9.232202
+2021-09-18 14:30:53.680 +03:00 [INF] [dotnet] Conversion complete!
+2021-09-18 14:30:54.008 +03:00 [INF] Project file converted successfully! The project may require additional changes to build successfully against the new .NET target.
+2021-09-18 14:30:55.955 +03:00 [INF] Upgrade step Convert project file to SDK style applied successfully
+2021-09-18 14:31:06.739 +03:00 [INF] Initializing upgrade step Clean up NuGet package references
+2021-09-18 14:31:09.440 +03:00 [INF] Reference to .NET Upgrade Assistant analyzer package (Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, version 0.3.246501) needs added
+2021-09-18 14:31:09.451 +03:00 [INF] Packages to be added: Operation { Item = Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501, OperationDetails = OperationDetails { Risk = None, Details = System.Linq.EmptyPartition`1[System.String] } }
+2021-09-18 14:31:11.833 +03:00 [INF] Applying upgrade step Clean up NuGet package references
+2021-09-18 14:31:11.838 +03:00 [INF] Adding package reference: Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501
+2021-09-18 14:31:14.177 +03:00 [INF] Upgrade step Clean up NuGet package references applied successfully
+2021-09-18 14:31:19.592 +03:00 [INF] Initializing upgrade step Update TFM
+2021-09-18 14:31:19.652 +03:00 [INF] TFM needs updated to netstandard2.0
+2021-09-18 14:31:22.410 +03:00 [INF] Applying upgrade step Update TFM
+2021-09-18 14:31:24.701 +03:00 [INF] Updated TFM to netstandard2.0
+2021-09-18 14:31:24.703 +03:00 [INF] Upgrade step Update TFM applied successfully
+2021-09-18 14:31:29.286 +03:00 [INF] Initializing upgrade step Update NuGet Packages
+2021-09-18 14:31:32.923 +03:00 [INF] Marking package HtmlAgilityPack, Version=1.4.9 for removal because it doesn't support the target framework but a newer version (1.11.36) does
+2021-09-18 14:31:32.950 +03:00 [INF] Packages to be removed: Operation { Item = HtmlAgilityPack, Version=1.4.9, OperationDetails = OperationDetails { Risk = None, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:31:32.952 +03:00 [INF] Packages to be added: Operation { Item = HtmlAgilityPack, Version=1.11.36, OperationDetails = OperationDetails { Risk = Low, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:31:35.259 +03:00 [INF] Applying upgrade step Update NuGet Packages
+2021-09-18 14:31:35.262 +03:00 [INF] Removing outdated package reference: HtmlAgilityPack, Version=1.4.9
+2021-09-18 14:31:35.265 +03:00 [INF] Adding package reference: HtmlAgilityPack, Version=1.11.36
+2021-09-18 14:31:37.375 +03:00 [INF] Marking package HtmlAgilityPack for removal because it appears to be a transitive dependency
+2021-09-18 14:31:37.381 +03:00 [INF] Removing outdated package reference: HtmlAgilityPack, Version=1.11.36
+2021-09-18 14:31:39.580 +03:00 [INF] Upgrade step Update NuGet Packages applied successfully
+2021-09-18 14:31:42.519 +03:00 [INF] Initializing upgrade step Add template files
+2021-09-18 14:31:42.532 +03:00 [INF] 0 expected template items needed
+2021-09-18 14:31:42.538 +03:00 [INF] Initializing upgrade step Update source code
+2021-09-18 14:31:42.543 +03:00 [INF] Running analyzers on HtmlAgilityPack.CssSelectors.UnitTests
+2021-09-18 14:31:44.238 +03:00 [INF] Identified 0 diagnostics in project HtmlAgilityPack.CssSelectors.UnitTests
+2021-09-18 14:31:44.247 +03:00 [INF] Initializing upgrade step Move to next project
+2021-09-18 14:31:48.995 +03:00 [INF] Applying upgrade step Move to next project
+2021-09-18 14:31:48.996 +03:00 [INF] Upgrade step Move to next project applied successfully
+2021-09-18 14:31:52.714 +03:00 [INF] Initializing upgrade step Finalize upgrade
+2021-09-18 14:31:58.026 +03:00 [INF] Applying upgrade step Finalize upgrade
+2021-09-18 14:31:58.028 +03:00 [INF] Upgrade step Finalize upgrade applied successfully
+2021-09-18 14:31:59.875 +03:00 [INF] Upgrade has completed. Please review any changes.
+2021-09-18 14:32:26.667 +03:00 [INF] Loaded 5 extensions
+2021-09-18 14:32:26.961 +03:00 [INF] MSBuild registered from C:\Program Files\dotnet\sdk\5.0.401\
+2021-09-18 14:32:27.351 +03:00 [INF] Found Visual Studio v16.11.31702.278 [C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional]
+2021-09-18 14:32:27.355 +03:00 [INF] Found Visual Studio v16.8.31005.135 [C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools]
+2021-09-18 14:32:27.358 +03:00 [INF] Found Visual Studio v15.9.28307.1500 [C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools]
+2021-09-18 14:32:29.078 +03:00 [INF] Initializing upgrade step Select an entrypoint
+2021-09-18 14:33:59.254 +03:00 [INF] Applying upgrade step Select an entrypoint
+2021-09-18 14:34:02.866 +03:00 [INF] Upgrade step Select an entrypoint applied successfully
+2021-09-18 14:34:04.553 +03:00 [INF] Initializing upgrade step Select project to upgrade
+2021-09-18 14:34:07.345 +03:00 [INF] Applying upgrade step Select project to upgrade
+2021-09-18 14:34:13.221 +03:00 [INF] Upgrade step Select project to upgrade applied successfully
+2021-09-18 14:34:16.064 +03:00 [INF] Initializing upgrade step Back up project
+2021-09-18 14:34:16.070 +03:00 [INF] Initializing upgrade step Convert project file to SDK style
+2021-09-18 14:34:17.503 +03:00 [INF] Applying upgrade step Convert project file to SDK style
+2021-09-18 14:34:17.507 +03:00 [INF] Converting project file format with try-convert, version 0.9.232202
+2021-09-18 14:34:18.930 +03:00 [INF] [dotnet] Conversion complete!
+2021-09-18 14:34:19.278 +03:00 [INF] Project file converted successfully! The project may require additional changes to build successfully against the new .NET target.
+2021-09-18 14:34:20.900 +03:00 [INF] Upgrade step Convert project file to SDK style applied successfully
+2021-09-18 14:34:26.411 +03:00 [INF] Initializing upgrade step Clean up NuGet package references
+2021-09-18 14:34:28.849 +03:00 [INF] Reference to .NET Upgrade Assistant analyzer package (Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, version 0.3.246501) needs added
+2021-09-18 14:34:28.862 +03:00 [INF] Packages to be added: Operation { Item = Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501, OperationDetails = OperationDetails { Risk = None, Details = System.Linq.EmptyPartition`1[System.String] } }
+2021-09-18 14:34:30.094 +03:00 [INF] Applying upgrade step Clean up NuGet package references
+2021-09-18 14:34:30.100 +03:00 [INF] Adding package reference: Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers, Version=0.3.246501
+2021-09-18 14:34:32.093 +03:00 [INF] Upgrade step Clean up NuGet package references applied successfully
+2021-09-18 14:34:34.191 +03:00 [INF] Initializing upgrade step Update TFM
+2021-09-18 14:34:34.249 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:34:34.252 +03:00 [INF] TFM needs updated to net5.0
+2021-09-18 14:34:35.934 +03:00 [INF] Applying upgrade step Update TFM
+2021-09-18 14:34:35.938 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:34:37.940 +03:00 [INF] Updated TFM to net5.0
+2021-09-18 14:34:37.941 +03:00 [INF] Upgrade step Update TFM applied successfully
+2021-09-18 14:34:39.148 +03:00 [INF] Initializing upgrade step Update NuGet Packages
+2021-09-18 14:34:42.528 +03:00 [INF] Marking package HtmlAgilityPack, Version=1.4.9 for removal because it doesn't support the target framework but a newer version (1.11.36) does
+2021-09-18 14:34:42.556 +03:00 [INF] Packages to be removed: Operation { Item = HtmlAgilityPack, Version=1.4.9, OperationDetails = OperationDetails { Risk = None, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:34:42.559 +03:00 [INF] Packages to be added: Operation { Item = HtmlAgilityPack, Version=1.11.36, OperationDetails = OperationDetails { Risk = Low, Details = System.Collections.Generic.List`1[System.String] } }
+2021-09-18 14:34:42.576 +03:00 [INF] Applying upgrade step Update NuGet Packages
+2021-09-18 14:34:42.578 +03:00 [INF] Removing outdated package reference: HtmlAgilityPack, Version=1.4.9
+2021-09-18 14:34:42.581 +03:00 [INF] Adding package reference: HtmlAgilityPack, Version=1.11.36
+2021-09-18 14:34:44.658 +03:00 [INF] Marking package HtmlAgilityPack for removal because it appears to be a transitive dependency
+2021-09-18 14:34:44.663 +03:00 [INF] Removing outdated package reference: HtmlAgilityPack, Version=1.11.36
+2021-09-18 14:34:46.785 +03:00 [INF] Upgrade step Update NuGet Packages applied successfully
+2021-09-18 14:35:05.253 +03:00 [INF] Initializing upgrade step Add template files
+2021-09-18 14:35:05.264 +03:00 [INF] 0 expected template items needed
+2021-09-18 14:35:05.270 +03:00 [INF] Initializing upgrade step Update source code
+2021-09-18 14:35:05.275 +03:00 [INF] Running analyzers on HtmlAgilityPack.CssSelectors.UnitTests
+2021-09-18 14:35:06.747 +03:00 [INF] Identified 0 diagnostics in project HtmlAgilityPack.CssSelectors.UnitTests
+2021-09-18 14:35:06.776 +03:00 [INF] Initializing upgrade step Move to next project
+2021-09-18 14:35:27.367 +03:00 [INF] Applying upgrade step Move to next project
+2021-09-18 14:35:27.370 +03:00 [INF] Upgrade step Move to next project applied successfully
+2021-09-18 14:35:28.647 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:35:28.652 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:35:28.656 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:35:28.658 +03:00 [INF] Initializing upgrade step Finalize upgrade
+2021-09-18 14:35:28.660 +03:00 [INF] Recommending TFM net5.0 because of dependency on project C:\Users\HakamFostok\source\repos\HtmlAgilityPack.CssSelector\HapCss\HtmlAgilityPack.CssSelectors.csproj
+2021-09-18 14:35:32.306 +03:00 [INF] Applying upgrade step Finalize upgrade
+2021-09-18 14:35:32.308 +03:00 [INF] Upgrade step Finalize upgrade applied successfully
+2021-09-18 14:35:33.806 +03:00 [INF] Upgrade has completed. Please review any changes.
+2021-09-18 14:35:33.815 +03:00 [INF] No state to save
