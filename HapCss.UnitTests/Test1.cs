@@ -8,7 +8,7 @@ namespace HapCss.UnitTests
     [TestClass]
     public class Html1
     {
-        static HtmlDocument doc = LoadHtml();
+        private static HtmlDocument doc = LoadHtml();
 
         [TestMethod]
         public void IdSelectorMustReturnOnlyFirstElement()
@@ -67,6 +67,5 @@ namespace HapCss.UnitTests
 
             return doc;
         }
-
     }
 }

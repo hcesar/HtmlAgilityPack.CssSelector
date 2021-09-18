@@ -47,7 +47,8 @@ namespace HapCss.Selectors
             return (HtmlNode node) => node.Attributes.Contains(filter) && operation(node.Attributes[filter].Value, value);
         }
 
-        static CultureInfo s_Culture = CultureInfo.GetCultureInfo("en");
+        private static CultureInfo s_Culture = CultureInfo.GetCultureInfo("en");
+
         private Func<string, string, bool> GetOperation(char value)
         {
             if (char.IsLetterOrDigit(value))

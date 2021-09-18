@@ -18,7 +18,7 @@ namespace System
 
         public static IList<HtmlNode> QuerySelectorAll(this HtmlNode node, string cssSelector) =>
             new[] { node }.QuerySelectorAll(cssSelector);
-        
+
         public static IList<HtmlNode> QuerySelectorAll(this IEnumerable<HtmlNode> nodes, string cssSelector)
         {
             if (cssSelector == null)

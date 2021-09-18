@@ -11,7 +11,7 @@ namespace HapCss
         {
             SubSelectors = new List<CssSelector>();
         }
-       
+
         private static readonly CssSelector[] s_Selectors = FindSelectors();
         public abstract string Token { get; }
         protected virtual bool IsSubSelector => false;
@@ -19,7 +19,7 @@ namespace HapCss
 
         public IList<CssSelector> SubSelectors { get; set; }
         public string Selector { get; set; }
-      
+
         protected internal abstract IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes);
 
         public IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> currentNodes)
