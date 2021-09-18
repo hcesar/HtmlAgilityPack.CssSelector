@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HapCss
 {
@@ -24,9 +22,9 @@ namespace HapCss
 
         private static IList<string> SplitTokens(string token)
         {
-            Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-'|| c == '_';
+            Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-' || c == '_';
             var rt = new List<string>();
-           
+
             int start = 0;
             bool isPrefix = true;
             bool isOpeningBracket = false;

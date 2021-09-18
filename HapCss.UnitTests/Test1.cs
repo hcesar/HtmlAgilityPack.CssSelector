@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HapCss.UnitTests
 {
@@ -40,7 +40,7 @@ namespace HapCss.UnitTests
                 Assert.IsTrue(elements1[i] == elements2[i]);
         }
 
-		[TestMethod]
+        [TestMethod]
         public void GetElementsByClassName_MultiClasses()
         {
             var elements = doc.QuerySelectorAll(".cls-a, .cls-b");
@@ -50,7 +50,7 @@ namespace HapCss.UnitTests
             Assert.IsTrue(elements[1].Id == "spanB");
         }
 
-		[TestMethod]
+        [TestMethod]
         public void GetElementsByClassName_WithUnderscore()
         {
             var elements = doc.QuerySelectorAll(".underscore_class");

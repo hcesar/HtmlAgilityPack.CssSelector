@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HapCss
 {
@@ -18,8 +16,8 @@ namespace HapCss
 
         protected abstract bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter);
 
-        
-        
+
+
         public static PseudoClass GetPseudoClass(string pseudoClass)
         {
             if (!s_Classes.ContainsKey(pseudoClass))
@@ -36,13 +34,17 @@ namespace HapCss
             // - dynamic assemblies will fail
             // - I have observed the non-dynamic assembly  "DotNetOpenAuth, Version=3.4.7.11121, Culture=neutral, PublicKeyToken=2780ccd10d57b246" also fail with no obvious way of knowing it will
             //  fall ahead of time.  For this reason, I have wrapped "GetTypes" in a try/catch block so that the code can continue on somewhat gracefully
-            Func<System.Reflection.Assembly, Type[]> tryGetTypes = a => {
-                if (!a.IsDynamic) {
-                    try {                    
-                        return a.GetTypes();                    
-                    } catch (Exception) { }
+            Func<System.Reflection.Assembly, Type[]> tryGetTypes = a =>
+            {
+                if (!a.IsDynamic)
+                {
+                    try
+                    {
+                        return a.GetTypes();
+                    }
+                    catch (Exception) { }
                 }
-                return new Type[] { };               
+                return new Type[] { };
             };
 
             var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => tryGetTypes(asm).Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
