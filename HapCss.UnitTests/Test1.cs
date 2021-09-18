@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HapCss.UnitTests
@@ -13,7 +14,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void IdSelectorMustReturnOnlyFirstElement()
         {
-            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll("#myDiv");
+            IList<HtmlNode> elements = doc.QuerySelectorAll("#myDiv");
 
             Assert.IsTrue(elements.Count == 1);
             Assert.IsTrue(elements[0].Id == "myDiv");
@@ -23,7 +24,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByAttribute()
         {
-            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll("*[id=myDiv]");
+            IList<HtmlNode> elements = doc.QuerySelectorAll("*[id=myDiv]");
 
             Assert.IsTrue(elements.Distinct().Count() == 2 && elements.Count == 2);
             for (int i = 0; i < elements.Count; i++)
@@ -33,8 +34,8 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName1()
         {
-            System.Collections.Generic.IList<HtmlNode> elements1 = doc.QuerySelectorAll(".cls-a");
-            System.Collections.Generic.IList<HtmlNode> elements2 = doc.QuerySelectorAll(".clsb");
+            IList<HtmlNode> elements1 = doc.QuerySelectorAll(".cls-a");
+            IList<HtmlNode> elements2 = doc.QuerySelectorAll(".clsb");
 
             Assert.IsTrue(elements1.Count == 1);
             for (int i = 0; i < elements1.Count; i++)
@@ -44,7 +45,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName_MultiClasses()
         {
-            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll(".cls-a, .cls-b");
+            IList<HtmlNode> elements = doc.QuerySelectorAll(".cls-a, .cls-b");
 
             Assert.IsTrue(elements.Count == 2);
             Assert.IsTrue(elements[0].Id == "spanA");
@@ -54,7 +55,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName_WithUnderscore()
         {
-            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll(".underscore_class");
+            IList<HtmlNode> elements = doc.QuerySelectorAll(".underscore_class");
 
             Assert.IsTrue(elements.Count == 1);
             Assert.IsTrue(elements[0].Id == "spanB");
