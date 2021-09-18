@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HtmlAgilityPack;
+using System.Collections.Generic;
 
 namespace HapCss.Selectors
 {
@@ -6,7 +7,7 @@ namespace HapCss.Selectors
     {
         public override string Token => ":";
 
-        protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
+        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
             string[] values = this.Selector.TrimEnd(')').Split(new[] { '(' }, 2);
 

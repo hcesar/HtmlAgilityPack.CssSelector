@@ -14,7 +14,7 @@ namespace HapCss
             return nodes.Where(i => CheckNode(i, parameter));
         }
 
-        protected abstract bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter);
+        protected abstract bool CheckNode(HtmlNode node, string parameter);
 
 
 

@@ -7,26 +7,26 @@ namespace System
 {
     public static partial class HapCssExtensionMethods
     {
-        public static HtmlAgilityPack.HtmlNode QuerySelector(this HtmlAgilityPack.HtmlDocument doc, string cssSelector)
+        public static HtmlNode QuerySelector(this HtmlDocument doc, string cssSelector)
         {
             return doc.QuerySelectorAll(cssSelector).FirstOrDefault();
         }
 
-        public static HtmlAgilityPack.HtmlNode QuerySelector(this HtmlAgilityPack.HtmlNode node, string cssSelector)
+        public static HtmlNode QuerySelector(this HtmlNode node, string cssSelector)
         {
             return node.QuerySelectorAll(cssSelector).FirstOrDefault();
         }
 
-        public static IList<HtmlAgilityPack.HtmlNode> QuerySelectorAll(this HtmlAgilityPack.HtmlDocument doc, string cssSelector)
+        public static IList<HtmlNode> QuerySelectorAll(this HtmlDocument doc, string cssSelector)
         {
             return doc.DocumentNode.QuerySelectorAll(cssSelector);
         }
 
-        public static IList<HtmlAgilityPack.HtmlNode> QuerySelectorAll(this HtmlAgilityPack.HtmlNode node, string cssSelector)
+        public static IList<HtmlNode> QuerySelectorAll(this HtmlNode node, string cssSelector)
         {
             return new[] { node }.QuerySelectorAll(cssSelector);
         }
-        public static IList<HtmlAgilityPack.HtmlNode> QuerySelectorAll(this IEnumerable<HtmlAgilityPack.HtmlNode> nodes, string cssSelector)
+        public static IList<HtmlNode> QuerySelectorAll(this IEnumerable<HtmlNode> nodes, string cssSelector)
         {
             if (cssSelector == null)
                 throw new ArgumentNullException("cssSelector");
@@ -62,13 +62,13 @@ namespace System
         }
 
 
-        private static IEnumerable<HtmlAgilityPack.HtmlNode> Traverse(IEnumerable<HtmlAgilityPack.HtmlNode> nodes)
+        private static IEnumerable<HtmlNode> Traverse(IEnumerable<HtmlNode> nodes)
         {
             foreach (HtmlNode node in nodes)
                 foreach (HtmlNode n in Traverse(node).Where(i => i.NodeType == HtmlNodeType.Element))
                     yield return n;
         }
-        private static IEnumerable<HtmlAgilityPack.HtmlNode> Traverse(HtmlAgilityPack.HtmlNode node)
+        private static IEnumerable<HtmlNode> Traverse(HtmlNode node)
         {
             yield return node;
 

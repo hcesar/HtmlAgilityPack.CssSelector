@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HtmlAgilityPack;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 
@@ -7,12 +8,12 @@ namespace HapCss.UnitTests
     [TestClass]
     public class Html1
     {
-        static HtmlAgilityPack.HtmlDocument doc = LoadHtml();
+        static HtmlDocument doc = LoadHtml();
 
         [TestMethod]
         public void IdSelectorMustReturnOnlyFirstElement()
         {
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements = doc.QuerySelectorAll("#myDiv");
+            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll("#myDiv");
 
             Assert.IsTrue(elements.Count == 1);
             Assert.IsTrue(elements[0].Id == "myDiv");
@@ -22,7 +23,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByAttribute()
         {
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements = doc.QuerySelectorAll("*[id=myDiv]");
+            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll("*[id=myDiv]");
 
             Assert.IsTrue(elements.Distinct().Count() == 2 && elements.Count == 2);
             for (int i = 0; i < elements.Count; i++)
@@ -32,8 +33,8 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName1()
         {
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements1 = doc.QuerySelectorAll(".cls-a");
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements2 = doc.QuerySelectorAll(".clsb");
+            System.Collections.Generic.IList<HtmlNode> elements1 = doc.QuerySelectorAll(".cls-a");
+            System.Collections.Generic.IList<HtmlNode> elements2 = doc.QuerySelectorAll(".clsb");
 
             Assert.IsTrue(elements1.Count == 1);
             for (int i = 0; i < elements1.Count; i++)
@@ -43,7 +44,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName_MultiClasses()
         {
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements = doc.QuerySelectorAll(".cls-a, .cls-b");
+            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll(".cls-a, .cls-b");
 
             Assert.IsTrue(elements.Count == 2);
             Assert.IsTrue(elements[0].Id == "spanA");
@@ -53,7 +54,7 @@ namespace HapCss.UnitTests
         [TestMethod]
         public void GetElementsByClassName_WithUnderscore()
         {
-            System.Collections.Generic.IList<HtmlAgilityPack.HtmlNode> elements = doc.QuerySelectorAll(".underscore_class");
+            System.Collections.Generic.IList<HtmlNode> elements = doc.QuerySelectorAll(".underscore_class");
 
             Assert.IsTrue(elements.Count == 1);
             Assert.IsTrue(elements[0].Id == "spanB");
@@ -61,9 +62,9 @@ namespace HapCss.UnitTests
 
 
 
-        private static HtmlAgilityPack.HtmlDocument LoadHtml()
+        private static HtmlDocument LoadHtml()
         {
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(Resource.GetString("Test1.html"));
 
             return doc;

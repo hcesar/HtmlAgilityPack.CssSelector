@@ -10,7 +10,7 @@ namespace HapCss.Selectors
     {
         public override string Token => "[";
 
-        protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
+        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
             Func<HtmlNode, bool> filter = this.GetFilter();
             foreach (HtmlNode node in currentNodes)

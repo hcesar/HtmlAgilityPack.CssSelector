@@ -6,12 +6,12 @@ namespace System
 {
     public static partial class HapCssExtensionMethods
     {
-        public static IEnumerable<HtmlAgilityPack.HtmlNode> GetChildElements(this HtmlAgilityPack.HtmlNode node)
+        public static IEnumerable<HtmlNode> GetChildElements(this HtmlNode node)
         {
             return node.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element);
         }
 
-        public static IList<string> GetClassList(this HtmlAgilityPack.HtmlNode node)
+        public static IList<string> GetClassList(this HtmlNode node)
         {
             HtmlAttribute attr = node.Attributes["class"];
             if (attr == null)

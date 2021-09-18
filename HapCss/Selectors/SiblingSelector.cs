@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,12 +11,12 @@ namespace HapCss.Selectors
 
         public override string Token => "~";
 
-        protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
+        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
-            foreach (HtmlAgilityPack.HtmlNode node in currentNodes)
+            foreach (HtmlNode node in currentNodes)
             {
                 int idx = node.GetIndexOnParent();
-                foreach (HtmlAgilityPack.HtmlNode n in node.ParentNode.ChildNodes.Where(i => i.NodeType == HtmlAgilityPack.HtmlNodeType.Element).Skip(idx + 1))
+                foreach (HtmlNode n in node.ParentNode.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element).Skip(idx + 1))
                     yield return n;
             }
         }

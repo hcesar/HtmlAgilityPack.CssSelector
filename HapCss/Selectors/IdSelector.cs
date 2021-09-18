@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 
 namespace HapCss.Selectors
@@ -7,15 +8,15 @@ namespace HapCss.Selectors
     {
         public override string Token => "#";
 
-        protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
+        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
-            foreach (HtmlAgilityPack.HtmlNode node in currentNodes)
+            foreach (HtmlNode node in currentNodes)
             {
                 if (node.Id.Equals(this.Selector, StringComparison.InvariantCultureIgnoreCase))
                     return new[] { node };
             }
 
-            return new HtmlAgilityPack.HtmlNode[0];
+            return new HtmlNode[0];
         }
     }
 }

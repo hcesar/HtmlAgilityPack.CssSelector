@@ -25,9 +25,9 @@ namespace HapCss
         #endregion
 
         #region Methods
-        protected internal abstract IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes);
+        protected internal abstract IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes);
 
-        public IEnumerable<HtmlAgilityPack.HtmlNode> Filter(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
+        public IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> currentNodes)
         {
             IEnumerable<HtmlNode> nodes = currentNodes;
             IEnumerable<HtmlNode> rt = this.FilterCore(nodes).Distinct();
