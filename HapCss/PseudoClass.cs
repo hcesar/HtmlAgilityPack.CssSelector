@@ -24,7 +24,7 @@ namespace HapCss
 
         private static Dictionary<string, PseudoClass> LoadPseudoClasses()
         {
-            Dictionary<string, PseudoClass> rt = new Dictionary<string, PseudoClass>(StringComparer.InvariantCultureIgnoreCase);
+            Dictionary<string, PseudoClass> rt = new(StringComparer.InvariantCultureIgnoreCase);
 
             // Try to be resilient against Assembly.GetType() throwing an exception:
             // - dynamic assemblies will fail

@@ -7,7 +7,7 @@ namespace HapCss
     {
         public static IEnumerable<Token> GetTokens(string cssFilter)
         {
-            System.IO.StringReader reader = new System.IO.StringReader(cssFilter);
+            System.IO.StringReader reader = new(cssFilter);
             while (true)
             {
                 int v = reader.Read();
@@ -33,7 +33,7 @@ namespace HapCss
 
         private static string ReadWord(System.IO.StringReader reader)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             while (true)
             {
                 int v = reader.Read();

@@ -62,7 +62,7 @@ namespace HapCss.UnitTests
 
         private static HtmlDocument LoadHtml()
         {
-            HtmlDocument doc = new HtmlDocument();
+            HtmlDocument doc = new();
             doc.LoadHtml(Resource.GetString("Test1.html"));
 
             return doc;

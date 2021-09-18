@@ -7,7 +7,7 @@ namespace HapCss.UnitTests
 {
     internal class Resource
     {
-        private static Dictionary<string, byte[]> s_Cache = new Dictionary<string, byte[]>(StringComparer.InvariantCultureIgnoreCase);
+        private static Dictionary<string, byte[]> s_Cache = new(StringComparer.InvariantCultureIgnoreCase);
 
         public static string GetString(string name)
         {
@@ -28,7 +28,7 @@ namespace HapCss.UnitTests
             if (stream == null)
                 throw new InvalidOperationException("Stream não encontrado: " + resourceName);
 
-            MemoryStream ms = new MemoryStream();
+            MemoryStream ms = new();
             stream.CopyTo(ms);
             ms.Position = 0;
             data = ms.ToArray();

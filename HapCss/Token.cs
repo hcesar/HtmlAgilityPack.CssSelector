@@ -23,7 +23,7 @@ namespace HapCss
         private static IList<string> SplitTokens(string token)
         {
             Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-' || c == '_';
-            List<string> rt = new List<string>();
+            List<string> rt = new();
 
             int start = 0;
             bool isPrefix = true;

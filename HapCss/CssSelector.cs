@@ -41,7 +41,7 @@ namespace HapCss
 
         public static IList<CssSelector> Parse(string cssSelector)
         {
-            List<CssSelector> rt = new List<CssSelector>();
+            List<CssSelector> rt = new();
             IEnumerable<Token> tokens = Tokenizer.GetTokens(cssSelector);
             foreach (Token token in tokens)
                 rt.Add(ParseSelector(token));
