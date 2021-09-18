@@ -5,15 +5,9 @@ namespace HapCss.Selectors
 {
     internal class ImediateChildrenSelector : CssSelector
     {
-        public override bool AllowTraverse
-        {
-            get { return false; }
-        }
+        public override bool AllowTraverse => false;
 
-        public override string Token
-        {
-            get { return ">"; }
-        }
+        public override string Token => ">";
 
         protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
         {

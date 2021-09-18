@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using HtmlAgilityPack;
+using System.Collections.Generic;
 
 namespace HapCss.Selectors
 {
     internal class AllSelector : CssSelector
     {
-        public override string Token
-        {
-            get { return "*"; }
-        }
+        public override string Token => "*";
 
-        protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
-        {
-            return currentNodes;
-        }
+        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes) =>
+            currentNodes;
     }
 }

@@ -7,7 +7,7 @@ namespace HapCss
     {
         public static IEnumerable<Token> GetTokens(string cssFilter)
         {
-            var reader = new System.IO.StringReader(cssFilter);
+            System.IO.StringReader reader = new System.IO.StringReader(cssFilter);
             while (true)
             {
                 int v = reader.Read();

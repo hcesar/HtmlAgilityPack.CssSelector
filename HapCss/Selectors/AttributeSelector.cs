@@ -8,15 +8,12 @@ namespace HapCss.Selectors
 {
     internal class AttributeSelector : CssSelector
     {
-        public override string Token
-        {
-            get { return "["; }
-        }
+        public override string Token => "[";
 
         protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
         {
-            var filter = this.GetFilter();
-            foreach (var node in currentNodes)
+            Func<HtmlNode, bool> filter = this.GetFilter();
+            foreach (HtmlNode node in currentNodes)
             {
                 if (filter(node))
                     yield return node;
@@ -35,7 +32,7 @@ namespace HapCss.Selectors
             if (idx < 0)
                 return (HtmlNode node) => node.Attributes.Contains(filter);
 
-            var operation = GetOperation(filter[idx - 1]);
+            Func<string, string, bool> operation = GetOperation(filter[idx - 1]);
 
             if (!char.IsLetterOrDigit(filter[idx - 1]))
                 filter = filter.Remove(idx - 1, 1);

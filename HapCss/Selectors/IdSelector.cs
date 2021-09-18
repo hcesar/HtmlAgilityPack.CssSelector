@@ -5,14 +5,11 @@ namespace HapCss.Selectors
 {
     internal class IdSelector : CssSelector
     {
-        public override string Token
-        {
-            get { return "#"; }
-        }
+        public override string Token => "#";
 
         protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
         {
-            foreach (var node in currentNodes)
+            foreach (HtmlAgilityPack.HtmlNode node in currentNodes)
             {
                 if (node.Id.Equals(this.Selector, StringComparison.InvariantCultureIgnoreCase))
                     return new[] { node };

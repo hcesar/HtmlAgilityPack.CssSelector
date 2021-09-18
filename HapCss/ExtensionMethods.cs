@@ -33,10 +33,10 @@ namespace System
 
             if (cssSelector.Contains(','))
             {
-                var combinedSelectors = cssSelector.Split(',');
-                var rt = nodes.QuerySelectorAll(combinedSelectors[0]);
-                foreach (var s in combinedSelectors.Skip(1))
-                    foreach (var n in nodes.QuerySelectorAll(s))
+                string[] combinedSelectors = cssSelector.Split(',');
+                IList<HtmlNode> rt = nodes.QuerySelectorAll(combinedSelectors[0]);
+                foreach (string s in combinedSelectors.Skip(1))
+                    foreach (HtmlNode n in nodes.QuerySelectorAll(s))
                         if (!rt.Contains(n))
                             rt.Add(n);
 
@@ -45,11 +45,11 @@ namespace System
 
             cssSelector = cssSelector.Trim();
 
-            var selectors = CssSelector.Parse(cssSelector);
+            IList<CssSelector> selectors = CssSelector.Parse(cssSelector);
 
             bool allowTraverse = true;
 
-            foreach (var selector in selectors)
+            foreach (CssSelector selector in selectors)
             {
                 if (allowTraverse && selector.AllowTraverse)
                     nodes = Traverse(nodes);
@@ -64,16 +64,16 @@ namespace System
 
         private static IEnumerable<HtmlAgilityPack.HtmlNode> Traverse(IEnumerable<HtmlAgilityPack.HtmlNode> nodes)
         {
-            foreach (var node in nodes)
-                foreach (var n in Traverse(node).Where(i => i.NodeType == HtmlNodeType.Element))
+            foreach (HtmlNode node in nodes)
+                foreach (HtmlNode n in Traverse(node).Where(i => i.NodeType == HtmlNodeType.Element))
                     yield return n;
         }
         private static IEnumerable<HtmlAgilityPack.HtmlNode> Traverse(HtmlAgilityPack.HtmlNode node)
         {
             yield return node;
 
-            foreach (var child in node.ChildNodes)
-                foreach (var n in Traverse(child))
+            foreach (HtmlNode child in node.ChildNodes)
+                foreach (HtmlNode n in Traverse(child))
                     yield return n;
         }
     }

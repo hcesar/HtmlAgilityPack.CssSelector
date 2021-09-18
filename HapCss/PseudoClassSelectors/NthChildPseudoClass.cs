@@ -5,9 +5,7 @@ namespace HapCss.PseudoClassSelectors
     [PseudoClassName("nth-child")]
     internal class NthChildPseudoClass : PseudoClass
     {
-        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter)
-        {
-            return node.GetIndexOnParent() == int.Parse(parameter) - 1;
-        }
+        protected override bool CheckNode(HtmlAgilityPack.HtmlNode node, string parameter) =>
+            node.GetIndexOnParent() == int.Parse(parameter) - 1;
     }
 }

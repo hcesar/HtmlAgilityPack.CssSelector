@@ -17,8 +17,8 @@ namespace HapCss
         #region Properties
         private static readonly CssSelector[] s_Selectors = FindSelectors();
         public abstract string Token { get; }
-        protected virtual bool IsSubSelector { get { return false; } }
-        public virtual bool AllowTraverse { get { return true; } }
+        protected virtual bool IsSubSelector => false;
+        public virtual bool AllowTraverse => true;
 
         public IList<CssSelector> SubSelectors { get; set; }
         public string Selector { get; set; }
@@ -29,13 +29,13 @@ namespace HapCss
 
         public IEnumerable<HtmlAgilityPack.HtmlNode> Filter(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
         {
-            var nodes = currentNodes;
+            IEnumerable<HtmlNode> nodes = currentNodes;
             IEnumerable<HtmlNode> rt = this.FilterCore(nodes).Distinct();
 
             if (this.SubSelectors.Count == 0)
                 return rt;
 
-            foreach (var selector in this.SubSelectors)
+            foreach (CssSelector selector in this.SubSelectors)
                 rt = selector.FilterCore(rt);
 
             return rt;
@@ -48,9 +48,9 @@ namespace HapCss
 
         public static IList<CssSelector> Parse(string cssSelector)
         {
-            var rt = new List<CssSelector>();
-            var tokens = Tokenizer.GetTokens(cssSelector);
-            foreach (var token in tokens)
+            List<CssSelector> rt = new List<CssSelector>();
+            IEnumerable<Token> tokens = Tokenizer.GetTokens(cssSelector);
+            foreach (Token token in tokens)
                 rt.Add(ParseSelector(token));
 
             return rt;
@@ -70,7 +70,7 @@ namespace HapCss
                 throw new InvalidOperationException("Token inválido: " + token.Filter);
 
             selectorType = selector.GetType();
-            var rt = (CssSelector)Activator.CreateInstance(selectorType);
+            CssSelector rt = (CssSelector)Activator.CreateInstance(selectorType);
 
             string filter = token.Filter.Substring(selector.Token.Length);
             rt.SubSelectors = token.SubTokens.Select(i => CssSelector.ParseSelector(i)).ToList();
@@ -81,14 +81,14 @@ namespace HapCss
 
         private static CssSelector[] FindSelectors()
         {
-            var defaultAsm = typeof(CssSelector).Assembly;
+            System.Reflection.Assembly defaultAsm = typeof(CssSelector).Assembly;
             Func<Type, bool> typeQuery = type => type.IsSubclassOf(typeof(CssSelector)) && !type.IsAbstract;
 
-            var defaultTypes = defaultAsm.GetTypes().Where(typeQuery);
-            var types = System.AppDomain.CurrentDomain.GetAssemblies().Where(asm => asm == defaultAsm).SelectMany(asm => asm.GetTypes().Where(typeQuery));
+            IEnumerable<Type> defaultTypes = defaultAsm.GetTypes().Where(typeQuery);
+            IEnumerable<Type> types = System.AppDomain.CurrentDomain.GetAssemblies().Where(asm => asm == defaultAsm).SelectMany(asm => asm.GetTypes().Where(typeQuery));
             types = defaultTypes.Concat(types);
 
-            var rt = types.Select(t => Activator.CreateInstance(t)).Cast<CssSelector>().ToArray();
+            CssSelector[] rt = types.Select(t => Activator.CreateInstance(t)).Cast<CssSelector>().ToArray();
             return rt;
         }
 

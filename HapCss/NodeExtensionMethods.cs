@@ -13,7 +13,7 @@ namespace System
 
         public static IList<string> GetClassList(this HtmlAgilityPack.HtmlNode node)
         {
-            var attr = node.Attributes["class"];
+            HtmlAttribute attr = node.Attributes["class"];
             if (attr == null)
                 return new string[0];
             return attr.Value.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
@@ -22,7 +22,7 @@ namespace System
         public static int GetIndexOnParent(this HtmlNode node)
         {
             int idx = 0;
-            foreach (var n in node.ParentNode.GetChildElements())
+            foreach (HtmlNode n in node.ParentNode.GetChildElements())
             {
                 if (n == node)
                     return idx;
@@ -34,7 +34,7 @@ namespace System
 
         public static HtmlNode NextSiblingElement(this HtmlNode node)
         {
-            var rt = node.NextSibling;
+            HtmlNode rt = node.NextSibling;
 
             while (rt != null && rt.NodeType != HtmlNodeType.Element)
                 rt = rt.NextSibling;
@@ -44,7 +44,7 @@ namespace System
 
         public static HtmlNode PreviousSiblingElement(this HtmlNode node)
         {
-            var rt = node.PreviousSibling;
+            HtmlNode rt = node.PreviousSibling;
 
             while (rt != null && rt.NodeType != HtmlNodeType.Element)
                 rt = rt.PreviousSibling;

@@ -28,7 +28,7 @@ namespace HapCss
 
         private static Dictionary<string, PseudoClass> LoadPseudoClasses()
         {
-            var rt = new Dictionary<string, PseudoClass>(StringComparer.InvariantCultureIgnoreCase);
+            Dictionary<string, PseudoClass> rt = new Dictionary<string, PseudoClass>(StringComparer.InvariantCultureIgnoreCase);
 
             // Try to be resilient against Assembly.GetType() throwing an exception:
             // - dynamic assemblies will fail
@@ -47,13 +47,13 @@ namespace HapCss
                 return new Type[] { };
             };
 
-            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => tryGetTypes(asm).Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
+            IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => tryGetTypes(asm).Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
 
             types = types.OrderBy(i => i.Assembly == typeof(PseudoClass).Assembly ? 0 : 1).ToList();
 
-            foreach (var type in types)
+            foreach (Type type in types)
             {
-                var attr = type.GetCustomAttributes(typeof(PseudoClassNameAttribute), false).Cast<PseudoClassNameAttribute>().FirstOrDefault();
+                PseudoClassNameAttribute attr = type.GetCustomAttributes(typeof(PseudoClassNameAttribute), false).Cast<PseudoClassNameAttribute>().FirstOrDefault();
                 rt.Add(attr.FunctionName, (PseudoClass)Activator.CreateInstance(type));
             }
 

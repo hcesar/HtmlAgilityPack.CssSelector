@@ -14,7 +14,7 @@ namespace HapCss
             if (string.IsNullOrEmpty(word))
                 throw new ArgumentNullException("word");
 
-            var tokens = SplitTokens(word).ToList();
+            List<string> tokens = SplitTokens(word).ToList();
 
             this.Filter = tokens.First();
             this.SubTokens = tokens.Skip(1).Select(i => new Token(i)).ToList();
@@ -23,7 +23,7 @@ namespace HapCss
         private static IList<string> SplitTokens(string token)
         {
             Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-' || c == '_';
-            var rt = new List<string>();
+            List<string> rt = new List<string>();
 
             int start = 0;
             bool isPrefix = true;

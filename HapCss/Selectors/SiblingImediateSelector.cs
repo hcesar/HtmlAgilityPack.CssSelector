@@ -6,22 +6,16 @@ namespace HapCss.Selectors
 {
     internal class SiblingImediateSelector : CssSelector
     {
-        public override bool AllowTraverse
-        {
-            get { return false; }
-        }
+        public override bool AllowTraverse => false;
 
-        public override string Token
-        {
-            get { return "+"; }
-        }
+        public override string Token => "+";
 
         protected internal override IEnumerable<HtmlAgilityPack.HtmlNode> FilterCore(IEnumerable<HtmlAgilityPack.HtmlNode> currentNodes)
         {
-            foreach (var node in currentNodes)
+            foreach (HtmlAgilityPack.HtmlNode node in currentNodes)
             {
-                var idx = node.GetIndexOnParent();
-                var n = node.ParentNode.ChildNodes.Where(i => i.NodeType == HtmlAgilityPack.HtmlNodeType.Element).Skip(idx + 1).FirstOrDefault();
+                int idx = node.GetIndexOnParent();
+                HtmlAgilityPack.HtmlNode n = node.ParentNode.ChildNodes.Where(i => i.NodeType == HtmlAgilityPack.HtmlNodeType.Element).Skip(idx + 1).FirstOrDefault();
 
                 if (n != null)
                     yield return n;

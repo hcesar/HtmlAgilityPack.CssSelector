@@ -21,14 +21,14 @@ namespace HapCss.UnitTests
             if (s_Cache.TryGetValue(name, out data))
                 return data;
 
-            var asm = typeof(Resource).Assembly;
+            System.Reflection.Assembly asm = typeof(Resource).Assembly;
             string resourceName = Path.GetFileNameWithoutExtension(asm.GetLoadedModules()[0].Name) + "." + name;
-            var stream = asm.GetManifestResourceStream(resourceName);
+            Stream stream = asm.GetManifestResourceStream(resourceName);
 
             if (stream == null)
                 throw new InvalidOperationException("Stream não encontrado: " + resourceName);
 
-            var ms = new MemoryStream();
+            MemoryStream ms = new MemoryStream();
             stream.CopyTo(ms);
             ms.Position = 0;
             data = ms.ToArray();
