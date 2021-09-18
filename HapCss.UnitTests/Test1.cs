@@ -60,8 +60,6 @@ namespace HapCss.UnitTests
             Assert.IsTrue(elements[0].Id == "spanB");
         }
 
-
-
         private static HtmlDocument LoadHtml()
         {
             HtmlDocument doc = new HtmlDocument();
