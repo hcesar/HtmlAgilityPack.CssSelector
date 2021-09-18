@@ -53,15 +53,14 @@ namespace HapCss.Selectors
             if (char.IsLetterOrDigit(value))
                 return (attr, v) => attr == v;
 
-            switch (value)
+            return value switch
             {
-                case '*': return (attr, v) => attr == v || attr.Contains(v);
-                case '^': return (attr, v) => attr.StartsWith(v);
-                case '$': return (attr, v) => attr.EndsWith(v);
-                case '~': return (attr, v) => attr.Split(' ').Contains(v);
-            }
-
-            throw new NotSupportedException("Uso inválido de seletor por atributo: " + Selector);
+                '*' => (attr, v) => attr == v || attr.Contains(v),
+                '^' => (attr, v) => attr.StartsWith(v),
+                '$' => (attr, v) => attr.EndsWith(v),
+                '~' => (attr, v) => attr.Split(' ').Contains(v),
+                _ => throw new NotSupportedException("Uso inválido de seletor por atributo: " + Selector),
+            };
         }
     }
 }
