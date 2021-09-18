@@ -25,7 +25,7 @@
 		<EmbeddedResource Include="Test1.html">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
-		<EmbeddedResource Include="test2.html">
+		<EmbeddedResource Include="Test2.html">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
