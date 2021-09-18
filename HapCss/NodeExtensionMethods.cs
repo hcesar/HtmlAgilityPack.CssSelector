@@ -6,10 +6,8 @@ namespace System
 {
     public static partial class HapCssExtensionMethods
     {
-        public static IEnumerable<HtmlNode> GetChildElements(this HtmlNode node)
-        {
-            return node.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element);
-        }
+        public static IEnumerable<HtmlNode> GetChildElements(this HtmlNode node) =>
+            node.ChildNodes.Where(i => i.NodeType == HtmlNodeType.Element);
 
         public static IList<string> GetClassList(this HtmlNode node)
         {

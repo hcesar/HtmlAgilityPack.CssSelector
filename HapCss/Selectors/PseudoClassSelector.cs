@@ -9,7 +9,7 @@ namespace HapCss.Selectors
 
         protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
-            string[] values = this.Selector.TrimEnd(')').Split(new[] { '(' }, 2);
+            string[] values = Selector.TrimEnd(')').Split(new[] { '(' }, 2);
 
             PseudoClass pseudoClass = PseudoClass.GetPseudoClass(values[0]);
             string value = values.Length > 1 ? values[1] : null;

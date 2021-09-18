@@ -12,7 +12,7 @@ namespace HapCss.Selectors
         {
             foreach (HtmlNode node in currentNodes)
             {
-                if (node.Name.Equals(this.Selector, StringComparison.InvariantCultureIgnoreCase))
+                if (node.Name.Equals(Selector, StringComparison.InvariantCultureIgnoreCase))
                     yield return node;
             }
         }

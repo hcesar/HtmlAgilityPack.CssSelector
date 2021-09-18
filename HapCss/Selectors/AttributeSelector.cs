@@ -12,7 +12,7 @@ namespace HapCss.Selectors
 
         protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
         {
-            Func<HtmlNode, bool> filter = this.GetFilter();
+            Func<HtmlNode, bool> filter = GetFilter();
             foreach (HtmlNode node in currentNodes)
             {
                 if (filter(node))
@@ -22,12 +22,12 @@ namespace HapCss.Selectors
 
         private Func<HtmlNode, bool> GetFilter()
         {
-            string filter = this.Selector.Trim('[', ']');
+            string filter = Selector.Trim('[', ']');
 
             int idx = filter.IndexOf('=');
 
             if (idx == 0)
-                throw new InvalidOperationException("Uso inválido de seletor por atributo: " + this.Selector);
+                throw new InvalidOperationException("Uso inválido de seletor por atributo: " + Selector);
 
             if (idx < 0)
                 return (HtmlNode node) => node.Attributes.Contains(filter);
@@ -61,7 +61,7 @@ namespace HapCss.Selectors
                 case '~': return (attr, v) => attr.Split(' ').Contains(v);
             }
 
-            throw new NotSupportedException("Uso inválido de seletor por atributo: " + this.Selector);
+            throw new NotSupportedException("Uso inválido de seletor por atributo: " + Selector);
         }
     }
 }

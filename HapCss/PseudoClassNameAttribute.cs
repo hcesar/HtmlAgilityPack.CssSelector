@@ -9,7 +9,7 @@ namespace HapCss
 
         public PseudoClassNameAttribute(string name)
         {
-            this.FunctionName = name;
+            FunctionName = name;
         }
     }
 }

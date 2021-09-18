@@ -9,14 +9,10 @@ namespace HapCss
     {
         private static Dictionary<string, PseudoClass> s_Classes = LoadPseudoClasses();
 
-        public virtual IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> nodes, string parameter)
-        {
-            return nodes.Where(i => CheckNode(i, parameter));
-        }
+        public virtual IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> nodes, string parameter) =>
+            nodes.Where(i => CheckNode(i, parameter));
 
         protected abstract bool CheckNode(HtmlNode node, string parameter);
-
-
 
         public static PseudoClass GetPseudoClass(string pseudoClass)
         {

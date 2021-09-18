@@ -7,14 +7,11 @@ namespace HapCss
 {
     public abstract class CssSelector
     {
-        #region Constructor
         public CssSelector()
         {
-            this.SubSelectors = new List<CssSelector>();
+            SubSelectors = new List<CssSelector>();
         }
-        #endregion
-
-        #region Properties
+       
         private static readonly CssSelector[] s_Selectors = FindSelectors();
         public abstract string Token { get; }
         protected virtual bool IsSubSelector => false;
@@ -22,29 +19,25 @@ namespace HapCss
 
         public IList<CssSelector> SubSelectors { get; set; }
         public string Selector { get; set; }
-        #endregion
-
-        #region Methods
+      
         protected internal abstract IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes);
 
         public IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> currentNodes)
         {
             IEnumerable<HtmlNode> nodes = currentNodes;
-            IEnumerable<HtmlNode> rt = this.FilterCore(nodes).Distinct();
+            IEnumerable<HtmlNode> rt = FilterCore(nodes).Distinct();
 
-            if (this.SubSelectors.Count == 0)
+            if (SubSelectors.Count == 0)
                 return rt;
 
-            foreach (CssSelector selector in this.SubSelectors)
+            foreach (CssSelector selector in SubSelectors)
                 rt = selector.FilterCore(rt);
 
             return rt;
         }
 
-        public virtual string GetSelectorParameter(string selector)
-        {
-            return selector.Substring(this.Token.Length);
-        }
+        public virtual string GetSelectorParameter(string selector) =>
+            selector.Substring(Token.Length);
 
         public static IList<CssSelector> Parse(string cssSelector)
         {
@@ -85,13 +78,11 @@ namespace HapCss
             Func<Type, bool> typeQuery = type => type.IsSubclassOf(typeof(CssSelector)) && !type.IsAbstract;
 
             IEnumerable<Type> defaultTypes = defaultAsm.GetTypes().Where(typeQuery);
-            IEnumerable<Type> types = System.AppDomain.CurrentDomain.GetAssemblies().Where(asm => asm == defaultAsm).SelectMany(asm => asm.GetTypes().Where(typeQuery));
+            IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies().Where(asm => asm == defaultAsm).SelectMany(asm => asm.GetTypes().Where(typeQuery));
             types = defaultTypes.Concat(types);
 
             CssSelector[] rt = types.Select(t => Activator.CreateInstance(t)).Cast<CssSelector>().ToArray();
             return rt;
         }
-
-        #endregion
     }
 }

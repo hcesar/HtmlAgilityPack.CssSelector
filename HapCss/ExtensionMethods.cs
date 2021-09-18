@@ -7,25 +7,18 @@ namespace System
 {
     public static partial class HapCssExtensionMethods
     {
-        public static HtmlNode QuerySelector(this HtmlDocument doc, string cssSelector)
-        {
-            return doc.QuerySelectorAll(cssSelector).FirstOrDefault();
-        }
+        public static HtmlNode QuerySelector(this HtmlDocument doc, string cssSelector) =>
+            doc.QuerySelectorAll(cssSelector).FirstOrDefault();
 
-        public static HtmlNode QuerySelector(this HtmlNode node, string cssSelector)
-        {
-            return node.QuerySelectorAll(cssSelector).FirstOrDefault();
-        }
+        public static HtmlNode QuerySelector(this HtmlNode node, string cssSelector) =>
+            node.QuerySelectorAll(cssSelector).FirstOrDefault();
 
-        public static IList<HtmlNode> QuerySelectorAll(this HtmlDocument doc, string cssSelector)
-        {
-            return doc.DocumentNode.QuerySelectorAll(cssSelector);
-        }
+        public static IList<HtmlNode> QuerySelectorAll(this HtmlDocument doc, string cssSelector) =>
+            doc.DocumentNode.QuerySelectorAll(cssSelector);
 
-        public static IList<HtmlNode> QuerySelectorAll(this HtmlNode node, string cssSelector)
-        {
-            return new[] { node }.QuerySelectorAll(cssSelector);
-        }
+        public static IList<HtmlNode> QuerySelectorAll(this HtmlNode node, string cssSelector) =>
+            new[] { node }.QuerySelectorAll(cssSelector);
+        
         public static IList<HtmlNode> QuerySelectorAll(this IEnumerable<HtmlNode> nodes, string cssSelector)
         {
             if (cssSelector == null)
@@ -61,13 +54,13 @@ namespace System
             return nodes.Distinct().ToList();
         }
 
-
         private static IEnumerable<HtmlNode> Traverse(IEnumerable<HtmlNode> nodes)
         {
             foreach (HtmlNode node in nodes)
                 foreach (HtmlNode n in Traverse(node).Where(i => i.NodeType == HtmlNodeType.Element))
                     yield return n;
         }
+
         private static IEnumerable<HtmlNode> Traverse(HtmlNode node)
         {
             yield return node;

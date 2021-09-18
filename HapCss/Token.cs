@@ -16,8 +16,8 @@ namespace HapCss
 
             List<string> tokens = SplitTokens(word).ToList();
 
-            this.Filter = tokens.First();
-            this.SubTokens = tokens.Skip(1).Select(i => new Token(i)).ToList();
+            Filter = tokens.First();
+            SubTokens = tokens.Skip(1).Select(i => new Token(i)).ToList();
         }
 
         private static IList<string> SplitTokens(string token)
