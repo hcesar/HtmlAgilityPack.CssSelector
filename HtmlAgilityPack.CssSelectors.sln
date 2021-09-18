@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.CssSelectors", "HapCss\HtmlAgilityPack.CssSelectors.csproj", "{F5A65D54-A578-4A58-AAD2-4A602C36DDA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlAgilityPack.CssSelectors", "HapCss\HtmlAgilityPack.CssSelectors.csproj", "{F5A65D54-A578-4A58-AAD2-4A602C36DDA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.CssSelectors.UnitTests", "HapCss.UnitTests\HtmlAgilityPack.CssSelectors.UnitTests.csproj", "{ABE34223-0E52-41E2-98DF-F03B2355448A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlAgilityPack.CssSelectors.UnitTests", "HapCss.UnitTests\HtmlAgilityPack.CssSelectors.UnitTests.csproj", "{ABE34223-0E52-41E2-98DF-F03B2355448A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{FF5D3D1D-0541-4B13-8F75-E2D86356A533}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8D0957C-CDEE-49DB-86B1-56E25D35FFD5}
 	EndGlobalSection
 EndGlobal
