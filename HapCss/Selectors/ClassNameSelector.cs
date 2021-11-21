@@ -1,21 +1,17 @@
 ﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace HapCss.Selectors
+namespace HapCss.Selectors;
+
+internal class ClassNameSelector : CssSelector
 {
-    internal class ClassNameSelector : CssSelector
-    {
-        public override string Token => ".";
+    public override string Token => ".";
 
-        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    {
+        foreach (HtmlNode node in currentNodes)
         {
-            foreach (HtmlNode node in currentNodes)
-            {
-                if (node.GetClassList().Any(c => c.Equals(Selector, StringComparison.InvariantCultureIgnoreCase)))
-                    yield return node;
-            }
+            if (node.GetClassList().Any(c => c.Equals(Selector, StringComparison.InvariantCultureIgnoreCase)))
+                yield return node;
         }
     }
 }

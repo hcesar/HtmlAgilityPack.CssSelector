@@ -1,15 +1,12 @@
-﻿using System;
+﻿namespace HapCss;
 
-namespace HapCss
+[AttributeUsage(AttributeTargets.Class)]
+public class PseudoClassNameAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class PseudoClassNameAttribute : Attribute
-    {
-        public string FunctionName { get; private set; }
+    public string FunctionName { get; private set; }
 
-        public PseudoClassNameAttribute(string name)
-        {
-            FunctionName = name;
-        }
+    public PseudoClassNameAttribute(string name)
+    {
+        FunctionName = name;
     }
 }

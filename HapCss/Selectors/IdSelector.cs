@@ -1,22 +1,19 @@
 ﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
 
-namespace HapCss.Selectors
+namespace HapCss.Selectors;
+
+internal class IdSelector : CssSelector
 {
-    internal class IdSelector : CssSelector
+    public override string Token => "#";
+
+    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
     {
-        public override string Token => "#";
-
-        protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+        foreach (HtmlNode node in currentNodes)
         {
-            foreach (HtmlNode node in currentNodes)
-            {
-                if (node.Id.Equals(Selector, StringComparison.InvariantCultureIgnoreCase))
-                    return new[] { node };
-            }
-
-            return new HtmlNode[0];
+            if (node.Id.Equals(Selector, StringComparison.InvariantCultureIgnoreCase))
+                return new[] { node };
         }
+
+        return new HtmlNode[0];
     }
 }

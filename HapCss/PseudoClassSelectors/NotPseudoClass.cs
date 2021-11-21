@@ -1,22 +1,19 @@
 ﻿using HtmlAgilityPack;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace HapCss.PseudoClassSelectors
+namespace HapCss.PseudoClassSelectors;
+
+[PseudoClassName("not")]
+internal class NotPseudoClass : PseudoClass
 {
-    [PseudoClassName("not")]
-    internal class NotPseudoClass : PseudoClass
+    protected override bool CheckNode(HtmlNode node, string parameter)
     {
-        protected override bool CheckNode(HtmlNode node, string parameter)
-        {
-            IList<CssSelector> selectors = CssSelector.Parse(parameter);
-            HtmlNode[] nodes = new[] { node };
+        IList<CssSelector> selectors = CssSelector.Parse(parameter);
+        HtmlNode[] nodes = new[] { node };
 
-            foreach (CssSelector selector in selectors)
-                if (selector.FilterCore(nodes).Count() == 1)
-                    return false;
+        foreach (CssSelector selector in selectors)
+            if (selector.FilterCore(nodes).Count() == 1)
+                return false;
 
-            return true;
-        }
+        return true;
     }
 }

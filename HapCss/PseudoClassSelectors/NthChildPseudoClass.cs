@@ -1,12 +1,10 @@
 ﻿using HtmlAgilityPack;
-using System;
 
-namespace HapCss.PseudoClassSelectors
+namespace HapCss.PseudoClassSelectors;
+
+[PseudoClassName("nth-child")]
+internal class NthChildPseudoClass : PseudoClass
 {
-    [PseudoClassName("nth-child")]
-    internal class NthChildPseudoClass : PseudoClass
-    {
-        protected override bool CheckNode(HtmlNode node, string parameter) =>
-            node.GetIndexOnParent() == int.Parse(parameter) - 1;
-    }
+    protected override bool CheckNode(HtmlNode node, string parameter) =>
+        node.GetIndexOnParent() == int.Parse(parameter) - 1;
 }
