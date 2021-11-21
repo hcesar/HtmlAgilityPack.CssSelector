@@ -1,6 +1,7 @@
 <Project>
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>true</ImplicitUsings>
 		<!--<Nullable>enable</Nullable>
 		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>-->
 		<AssemblyVersion>1.1.0.0</AssemblyVersion>
@@ -9,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.29.0.36737">
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.32.0.39516">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
