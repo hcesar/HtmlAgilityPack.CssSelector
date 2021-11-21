@@ -6,7 +6,7 @@ internal class IdSelector : CssSelector
 {
     public override string Token => "#";
 
-    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    internal protected override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
     {
         foreach (HtmlNode node in currentNodes)
         {
@@ -14,6 +14,6 @@ internal class IdSelector : CssSelector
                 return new[] { node };
         }
 
-        return new HtmlNode[0];
+        return Array.Empty<HtmlNode>();
     }
 }

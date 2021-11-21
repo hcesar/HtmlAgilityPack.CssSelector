@@ -4,7 +4,7 @@ namespace HapCss;
 
 public abstract class CssSelector
 {
-    public CssSelector()
+    protected CssSelector()
     {
         SubSelectors = new List<CssSelector>();
     }
@@ -17,7 +17,7 @@ public abstract class CssSelector
     public IList<CssSelector> SubSelectors { get; set; }
     public string Selector { get; set; }
 
-    protected internal abstract IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes);
+    internal protected abstract IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes);
 
     public IEnumerable<HtmlNode> Filter(IEnumerable<HtmlNode> currentNodes)
     {
@@ -34,7 +34,7 @@ public abstract class CssSelector
     }
 
     public virtual string GetSelectorParameter(string selector) =>
-        selector.Substring(Token.Length);
+        selector[Token.Length..];
 
     public static IList<CssSelector> Parse(string cssSelector)
     {
@@ -62,7 +62,7 @@ public abstract class CssSelector
         selectorType = selector.GetType();
         CssSelector rt = (CssSelector)Activator.CreateInstance(selectorType);
 
-        string filter = token.Filter.Substring(selector.Token.Length);
+        string filter = token.Filter[selector.Token.Length..];
         rt.SubSelectors = token.SubTokens.Select(i => CssSelector.ParseSelector(i)).ToList();
 
         rt.Selector = filter;
@@ -72,7 +72,8 @@ public abstract class CssSelector
     private static CssSelector[] FindSelectors()
     {
         System.Reflection.Assembly defaultAsm = typeof(CssSelector).Assembly;
-        Func<Type, bool> typeQuery = type => type.IsSubclassOf(typeof(CssSelector)) && !type.IsAbstract;
+
+        static bool typeQuery(Type type) => type.IsSubclassOf(typeof(CssSelector)) && !type.IsAbstract;
 
         IEnumerable<Type> defaultTypes = defaultAsm.GetTypes().Where(typeQuery);
         IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies().Where(asm => asm == defaultAsm).SelectMany(asm => asm.GetTypes().Where(typeQuery));

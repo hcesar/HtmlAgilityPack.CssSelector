@@ -11,7 +11,7 @@ public static partial class HapCssExtensionMethods
     {
         HtmlAttribute attr = node.Attributes["class"];
         if (attr == null)
-            return new string[0];
+            return Array.Empty<string>();
         return attr.Value.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
     }
 

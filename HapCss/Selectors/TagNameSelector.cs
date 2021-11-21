@@ -6,7 +6,7 @@ internal class TagNameSelector : CssSelector
 {
     public override string Token => string.Empty;
 
-    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    internal protected override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
     {
         foreach (HtmlNode node in currentNodes)
         {

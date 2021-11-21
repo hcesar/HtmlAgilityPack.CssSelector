@@ -27,7 +27,7 @@ public abstract class PseudoClass
         // - dynamic assemblies will fail
         // - I have observed the non-dynamic assembly  "DotNetOpenAuth, Version=3.4.7.11121, Culture=neutral, PublicKeyToken=2780ccd10d57b246" also fail with no obvious way of knowing it will
         //  fall ahead of time.  For this reason, I have wrapped "GetTypes" in a try/catch block so that the code can continue on somewhat gracefully
-        Func<System.Reflection.Assembly, Type[]> tryGetTypes = a =>
+        static Type[] tryGetTypes(System.Reflection.Assembly a)
         {
             if (!a.IsDynamic)
             {
@@ -37,8 +37,8 @@ public abstract class PseudoClass
                 }
                 catch (Exception) { }
             }
-            return new Type[] { };
-        };
+            return Array.Empty<Type>();
+        }
 
         IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => tryGetTypes(asm).Where(i => !i.IsAbstract && i.IsSubclassOf(typeof(PseudoClass))));
 

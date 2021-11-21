@@ -2,7 +2,7 @@
 
 namespace HapCss;
 
-public class Tokenizer
+public static class Tokenizer
 {
     public static IEnumerable<Token> GetTokens(string cssFilter)
     {

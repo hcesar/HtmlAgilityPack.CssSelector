@@ -8,7 +8,7 @@ public class Token
     public Token(string word)
     {
         if (string.IsNullOrEmpty(word))
-            throw new ArgumentNullException("word");
+            throw new ArgumentNullException(nameof(word));
 
         List<string> tokens = SplitTokens(word).ToList();
 
@@ -18,7 +18,7 @@ public class Token
 
     private static IList<string> SplitTokens(string token)
     {
-        Func<char, bool> isNameToken = (c) => char.IsLetterOrDigit(c) || c == '-' || c == '_';
+        static bool isNameToken(char c) => char.IsLetterOrDigit(c) || c == '-' || c == '_';
         List<string> rt = new();
 
         int start = 0;
@@ -42,7 +42,7 @@ public class Token
                 closeBracket = ']';
                 if (i != start)
                 {
-                    rt.Add(token.Substring(start, i - start));
+                    rt.Add(token[start..i]);
                     start = i;
                 }
                 isOpeningBracket = true;
@@ -53,7 +53,7 @@ public class Token
             }
             else if (!isNameToken(token[i]) && !isPrefix)
             {
-                rt.Add(token.Substring(start, i - start));
+                rt.Add(token[start..i]);
                 start = i;
             }
             else if (isNameToken(token[i]))

@@ -6,6 +6,6 @@ internal class AllSelector : CssSelector
 {
     public override string Token => "*";
 
-    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes) =>
+    internal protected override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes) =>
         currentNodes;
 }

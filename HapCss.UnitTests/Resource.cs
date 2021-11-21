@@ -2,7 +2,7 @@
 
 namespace HapCss.UnitTests;
 
-internal class Resource
+internal static class Resource
 {
     private static readonly Dictionary<string, byte[]> s_Cache = new(StringComparer.InvariantCultureIgnoreCase);
 

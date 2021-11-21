@@ -7,7 +7,7 @@ internal class AttributeSelector : CssSelector
 {
     public override string Token => "[";
 
-    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    internal protected override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
     {
         Func<HtmlNode, bool> filter = GetFilter();
         foreach (HtmlNode node in currentNodes)
@@ -38,13 +38,11 @@ internal class AttributeSelector : CssSelector
         filter = values[0];
         string value = values[1];
 
-        if (value[0] == value[value.Length - 1] && (value[0] == '"' || value[0] == '\''))
-            value = value.Substring(1, value.Length - 2);
+        if (value[0] == value[^1] && (value[0] == '"' || value[0] == '\''))
+            value = value[1..^1];
 
         return (HtmlNode node) => node.Attributes.Contains(filter) && operation(node.Attributes[filter].Value, value);
     }
-
-    private static readonly CultureInfo s_Culture = CultureInfo.GetCultureInfo("en");
 
     private Func<string, string, bool> GetOperation(char value)
     {

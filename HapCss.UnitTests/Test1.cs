@@ -60,9 +60,9 @@ public class Html1
 
     private static HtmlDocument LoadHtml()
     {
-        HtmlDocument doc = new();
-        doc.LoadHtml(Resource.GetString("Test1.html"));
+        HtmlDocument document = new();
+        document.LoadHtml(Resource.GetString("Test1.html"));
 
-        return doc;
+        return document;
     }
 }

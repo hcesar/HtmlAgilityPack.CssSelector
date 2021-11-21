@@ -20,7 +20,7 @@ public static partial class HapCssExtensionMethods
     public static IList<HtmlNode> QuerySelectorAll(this IEnumerable<HtmlNode> nodes, string cssSelector)
     {
         if (cssSelector == null)
-            throw new ArgumentNullException("cssSelector");
+            throw new ArgumentNullException(nameof(cssSelector));
 
         if (cssSelector.Contains(','))
         {

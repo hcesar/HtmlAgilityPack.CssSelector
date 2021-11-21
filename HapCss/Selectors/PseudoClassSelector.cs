@@ -6,7 +6,7 @@ internal class PseudoClassSelector : CssSelector
 {
     public override string Token => ":";
 
-    protected internal override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
+    internal protected override IEnumerable<HtmlNode> FilterCore(IEnumerable<HtmlNode> currentNodes)
     {
         string[] values = Selector.TrimEnd(')').Split(new[] { '(' }, 2);
 
